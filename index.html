@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GiftAura (@gifts.aura_) | Dainty Jewellery & Curated Gifting • Kalyan</title>
+  
+  <!-- Google Fonts: Playfair Display (Serif) & Plus Jakarta Sans (Sans-Serif) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+  <link rel="apple-touch-icon" href="assets/images/logo.png">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <aside class="top-bar" aria-label="Store Announcement">
+    <span class="top-bar-sparkle">✨</span>
+    <span>Handcrafted Dainty Jewellery • Special Kalyan & Dombivli Same-Day Delivery • 100% Cash on Delivery 📦</span>
+  </aside>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-wrapper" aria-label="GiftAura Home">
+        <img src="assets/images/logo.png" alt="GiftAura Logo" class="brand-logo-img">
+        <div class="brand-text-block">
+          <span class="brand-logo">GiftAura<span class="brand-dot">.</span></span>
+          <span class="brand-subtitle">Kalyan • Curated Gifting</span>
+        </div>
+      </a>
+
+      <nav class="nav-actions" aria-label="Customer Actions">
+        <a href="https://instagram.com/gifts.aura_" target="_blank" rel="noopener noreferrer" class="nav-btn nav-btn-track" style="display: none; @media(min-width: 768px){display:inline-flex;}">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          <span>@gifts.aura_</span>
+        </a>
+
+        <button id="navTrackOrderBtn" class="nav-btn nav-btn-track" aria-label="Track Order">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <span>Track Order</span>
+        </button>
+
+        <button id="openCartBtn" class="nav-btn nav-btn-cart" aria-label="View Shopping Bag">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+          <span>Bag</span>
+          <span id="cartBadge" class="cart-count-badge" style="display: none;">0</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-banner">
+          <div class="hero-content">
+            <div class="hero-pill">
+              <span>🌸</span> Kalyan's Most-Loved Dainty Studio
+            </div>
+            <h1 class="hero-heading">
+              Dainty Treasures &amp; <em>Curated Moments.</em>
+            </h1>
+            <p class="hero-description">
+              Affordable luxury jewellery designed for young romantics. Handcrafted in Kalyan, packed with heartfelt handwritten wax-sealed gift notes, and delivered safely to your door with <strong>100% Cash on Delivery</strong>.
+            </p>
+            <div class="hero-cta-group">
+              <a href="#customizerSection" class="btn-primary">
+                <span>Customize Aurelia Bracelet</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </a>
+              <a href="#catalogSection" class="btn-secondary">
+                <span>Explore Catalog</span>
+              </a>
+            </div>
+            <div class="hero-perks">
+              <div class="hero-perk-item">
+                <span class="hero-perk-icon">✨</span>
+                <span>Anti-Tarnish 18K Finish</span>
+              </div>
+              <div class="hero-perk-item">
+                <span class="hero-perk-icon">💵</span>
+                <span>Strictly Cash on Delivery</span>
+              </div>
+              <div class="hero-perk-item">
+                <span class="hero-perk-icon">💌</span>
+                <span>Free Handwritten Gift Card</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual-card">
+            <img src="assets/images/bracelet-emerald.jpeg" alt="Aurelia Crystal Vine Bracelet - Emerald Green" class="hero-visual-img">
+            <div class="hero-floating-badge">
+              <div>
+                <div class="floating-text-sub">Featured Bestseller</div>
+                <div class="floating-text-main">Aurelia Emerald Vine</div>
+              </div>
+              <div class="floating-price">₹110</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Strip -->
+    <section class="container">
+      <div class="trust-strip">
+        <div class="trust-item">
+          <div class="trust-icon-box">💵</div>
+          <div>
+            <div class="trust-title">100% Cash on Delivery</div>
+            <div class="trust-desc">Pay cash when your gift arrives</div>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon-box">💌</div>
+          <div>
+            <div class="trust-title">Free Handwritten Note</div>
+            <div class="trust-desc">Personalized message with wax seal</div>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon-box">📍</div>
+          <div>
+            <div class="trust-title">Kalyan Local Delivery</div>
+            <div class="trust-desc">Fast same/next-day local dispatch</div>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon-box">🌿</div>
+          <div>
+            <div class="trust-title">Anti-Tarnish &amp; Gentle</div>
+            <div class="trust-desc">Hypoallergenic &amp; water-resistant</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Special UI Feature: Interactive "Customize Your Aurelia Vine Bracelet" Showcase -->
+    <section id="customizerSection" class="container customizer-section">
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <span style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent-gold);">
+          Interactive Spotlight
+        </span>
+        <h2 class="title-section">Customize Your Aurelia Vine Bracelet</h2>
+        <p class="subtitle">Click the gemstone color dots to preview how each crystal glows, then add your favorite hue to your bag!</p>
+      </div>
+
+      <div class="customizer-card">
+        <!-- Live Image Preview with Cross-Fade -->
+        <div class="customizer-preview-container">
+          <span id="customizerBadge" class="customizer-badge">Bestseller</span>
+          <img id="customizerPreviewImg" src="assets/images/bracelet-emerald.jpeg" alt="Aurelia Crystal Vine Bracelet" class="customizer-preview-img">
+        </div>
+
+        <!-- Customizer Controls -->
+        <div class="customizer-details">
+          <span class="customizer-tagline">Signature 18K Gold Plated Vine</span>
+          <h3 id="customizerTitle" class="customizer-title">Aurelia Crystal Vine Bracelet - Emerald Green</h3>
+          
+          <div class="customizer-price-wrap">
+            <span id="customizerPrice" class="customizer-price">₹110</span>
+            <span id="customizerOriginalPrice" class="customizer-original-price">₹199</span>
+            <span class="customizer-discount-badge">Save 45%</span>
+          </div>
+
+          <!-- Color Swatches Grid -->
+          <div>
+            <div class="swatch-group-label">
+              <span>Select Gemstone Shade:</span>
+              <span id="selectedColorName" class="selected-color-name">Emerald Green</span>
+            </div>
+            <div id="customizerSwatches" class="swatches-grid" style="margin-top: 0.6rem;">
+              <!-- 6 Gemstone Dots populated via js/app.js -->
+            </div>
+          </div>
+
+          <!-- Features -->
+          <ul class="customizer-features-list">
+            <li>Hypoallergenic &amp; Nickel-Free</li>
+            <li>Adjustable fit for any wrist size</li>
+            <li>Anti-tarnish protective gloss</li>
+            <li>Free velvet gift packaging</li>
+          </ul>
+
+          <div class="customizer-actions">
+            <button class="btn-primary" style="flex: 1;" onclick="handleAddCustomizerToBag()">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+              <span>Add Selected Shade to Bag</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Catalog & Category Filters -->
+    <section id="catalogSection" class="container catalog-section">
+      <div class="catalog-header">
+        <h2 class="title-section">Our Curated Collection</h2>
+        <p class="subtitle">Dainty bracelets and statement necklaces designed to elevate your everyday aura.</p>
+        
+        <!-- Filter Tabs -->
+        <div class="filter-bar">
+          <button class="filter-pill active" data-filter="All">All Pieces</button>
+          <button class="filter-pill" data-filter="Bracelets">Bracelets</button>
+          <button class="filter-pill" data-filter="Necklaces">Necklaces</button>
+          <button class="filter-pill" data-filter="Under ₹199">Under ₹199</button>
+        </div>
+      </div>
+
+      <!-- Dynamic Grid of 8 Seed Products -->
+      <div id="productsGrid" class="products-grid">
+        <!-- Rendered by js/app.js -->
+      </div>
+    </section>
+
+    <!-- The GiftAura Gifting Experience -->
+    <section class="container promise-section">
+      <div style="text-align: center; margin-bottom: 2.5rem;">
+        <span style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent-gold);">
+          The GiftAura Experience
+        </span>
+        <h2 class="title-section">Unwrapping Joy in Every Box</h2>
+        <p class="subtitle">Every single GiftAura order is packed as a personal gift — whether you're treating your bestie or yourself.</p>
+      </div>
+
+      <div class="promise-grid">
+        <div class="promise-card">
+          <span class="promise-icon">🎀</span>
+          <h3 style="font-family: var(--font-serif); font-size: 1.25rem;">Keepsake Velvet Pouch</h3>
+          <p style="color: var(--text-secondary); font-size: 0.88rem;">Each piece comes nestled in a signature satin ribbon pouch to protect your jewellery from dust and humidity.</p>
+        </div>
+
+        <div class="promise-card">
+          <span class="promise-icon">💌</span>
+          <h3 style="font-family: var(--font-serif); font-size: 1.25rem;">Handwritten With Love</h3>
+          <p style="color: var(--text-secondary); font-size: 0.88rem;">Type any custom message during checkout, and our Kalyan team will handwrite it on an embossed stationery card with wax seal.</p>
+        </div>
+
+        <div class="promise-card">
+          <span class="promise-icon">📦</span>
+          <h3 style="font-family: var(--font-serif); font-size: 1.25rem;">Zero Advance Risk</h3>
+          <p style="color: var(--text-secondary); font-size: 0.88rem;">Enjoy 100% Cash on Delivery. Inspect your parcel at your doorstep and pay only when your GiftAura box arrives safely.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Slide-Out Cart Drawer -->
+  <div id="cartDrawerOverlay" class="cart-drawer-overlay">
+    <div class="cart-drawer" role="dialog" aria-label="Shopping Bag">
+      <div class="cart-header">
+        <h3 class="cart-title">Your Gift Bag</h3>
+        <button id="closeCartBtn" class="close-btn" aria-label="Close Shopping Bag">✕</button>
+      </div>
+
+      <div id="cartItemsList" class="cart-items-list">
+        <!-- Rendered by js/app.js -->
+      </div>
+
+      <div class="cart-footer">
+        <div class="free-packaging-note">
+          <span>🎁</span>
+          <span>Complimentary gift box &amp; handwritten note included!</span>
+        </div>
+
+        <div class="cart-row">
+          <span>Subtotal</span>
+          <span id="cartSubtotal" style="font-weight: 600;">₹0</span>
+        </div>
+        <div class="cart-row">
+          <span>Delivery</span>
+          <span id="cartShipping" style="font-weight: 600;">FREE (Local Promo)</span>
+        </div>
+        <div class="cart-row total-row">
+          <span>Total (Pay on Delivery)</span>
+          <span id="cartTotal">₹0</span>
+        </div>
+
+        <button id="cartCheckoutBtn" class="btn-primary" style="width: 100%;">
+          <span>Proceed to COD Checkout</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- On-Site COD Checkout Modal -->
+  <div id="checkoutModalOverlay" class="modal-overlay">
+    <div class="modal-box" role="dialog" aria-label="Cash on Delivery Checkout">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title">Cash on Delivery Checkout</h3>
+          <p style="font-size: 0.78rem; color: var(--text-secondary);">No advance payment required. Strictly Pay on Delivery.</p>
+        </div>
+        <button id="closeCheckoutBtn" class="close-btn" aria-label="Close Checkout">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <form id="codCheckoutForm">
+          <!-- Read-Only Payment Badge -->
+          <div class="cod-read-only-badge" style="margin-bottom: 1rem;">
+            <div class="cod-badge-heading">
+              <span>💵 100% Cash on Delivery</span>
+            </div>
+            <div id="checkoutCodBadgeTotal" class="cod-badge-text" style="font-weight: 600; color: var(--accent-gold-hover);">
+              Pay ₹0 in cash when your GiftAura box arrives.
+            </div>
+            <div style="font-size: 0.72rem; color: var(--text-secondary);">
+              Safe, private, and hassle-free. No UPI or card details required.
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 0.85rem;">
+            <label class="form-label" for="checkoutName">Your Full Name <span class="req">*</span></label>
+            <input type="text" id="checkoutName" class="form-input" placeholder="e.g. Aditi Kulkarni" required>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin-bottom: 0.85rem;">
+            <div class="form-group">
+              <label class="form-label" for="checkoutPhone">Phone Number <span class="req">*</span></label>
+              <input type="tel" id="checkoutPhone" class="form-input" placeholder="10-digit mobile number" maxlength="10" required>
+              <span class="form-hint">For dispatch delivery SMS</span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="checkoutInsta">Instagram Handle (Optional)</label>
+              <input type="text" id="checkoutInsta" class="form-input" placeholder="@yourhandle">
+              <span class="form-hint">For updates from @gifts.aura_</span>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 0.85rem;">
+            <label class="form-label" for="checkoutDeliveryZone">Delivery Zone <span class="req">*</span></label>
+            <select id="checkoutDeliveryZone" class="form-select" required>
+              <option value="local">Kalyan / Dombivli Local Delivery (Express Dispatch • FREE)</option>
+              <option value="standard">Standard Delivery (Maharashtra &amp; Rest of India • ₹40 / Free over ₹499)</option>
+            </select>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 0.85rem;">
+            <label class="form-label" for="checkoutAddress">Full Delivery Address <span class="req">*</span></label>
+            <textarea id="checkoutAddress" class="form-textarea" rows="2" placeholder="Flat/House No., Building, Street Name, Area" required></textarea>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 0.85rem; margin-bottom: 0.85rem;">
+            <div class="form-group">
+              <label class="form-label" for="checkoutLandmark">Landmark</label>
+              <input type="text" id="checkoutLandmark" class="form-input" placeholder="Near station, temple, school">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="checkoutPincode">Pincode <span class="req">*</span></label>
+              <input type="text" id="checkoutPincode" class="form-input" placeholder="e.g. 421301" maxlength="6" required>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 1.25rem;">
+            <label class="form-label" for="checkoutGiftNote">
+              Custom Handwritten Gift Note (Free)
+            </label>
+            <textarea id="checkoutGiftNote" class="form-textarea" rows="2" placeholder="Write your heartfelt note here... we'll handwrite it with an authentic wax seal!"></textarea>
+          </div>
+
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; padding: 0.75rem 1rem; background: var(--bg-primary); border-radius: 12px;">
+            <span style="font-weight: 600; font-size: 0.92rem;">Total Payable at Doorstep:</span>
+            <span id="checkoutTotalSummary" style="font-weight: 800; font-size: 1.2rem; color: var(--accent-gold-hover);">₹0</span>
+          </div>
+
+          <button type="submit" class="btn-primary" style="width: 100%;">
+            <span>Confirm &amp; Place COD Order</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Order Confirmed Receipt Modal -->
+  <div id="receiptModalOverlay" class="modal-overlay">
+    <div class="modal-box" role="dialog" aria-label="Order Confirmed Receipt">
+      <div class="confirmation-body">
+        <img src="assets/images/logo.png" alt="GiftAura Official Logo" class="receipt-logo-img">
+        <h3 style="font-family: var(--font-serif); font-size: 1.6rem;">Order Confirmed!</h3>
+        <p style="color: var(--text-secondary); font-size: 0.88rem; margin-top: -0.5rem;">
+          Thank you for trusting GiftAura. Your order has been scheduled for packaging with love in Kalyan.
+        </p>
+
+        <div class="order-id-highlight-box">
+          <span>Order ID:</span>
+          <span id="receiptOrderId" style="color: var(--accent-gold-hover);">GA-8492</span>
+          <button class="copy-id-btn" onclick="copyReceiptOrderId()">Copy ID</button>
+        </div>
+
+        <div class="order-summary-card">
+          <div style="display: flex; justify-content: space-between;">
+            <span style="color: var(--text-secondary);">Customer:</span>
+            <strong id="receiptCustomerName">Pooja Deshmukh</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <span style="color: var(--text-secondary);">Delivery Address:</span>
+            <span id="receiptAddress" style="text-align: right; max-width: 60%;">Gandhinagar, Kalyan</span>
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <span style="color: var(--text-secondary);">Items:</span>
+            <span id="receiptItemsCount">2 Items</span>
+          </div>
+          <div id="receiptItemsList" style="margin-top: 0.35rem; padding-top: 0.35rem; border-top: 1px dashed var(--border-subtle); font-size: 0.82rem;">
+            <!-- Items populated dynamically -->
+          </div>
+          <div style="display: flex; justify-content: space-between; font-size: 1rem; font-weight: 700; padding-top: 0.5rem; border-top: 1px solid var(--border-subtle);">
+            <span>COD Total (Pay at Door):</span>
+            <span id="receiptTotal" style="color: var(--accent-gold-hover);">₹359</span>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 0.85rem; width: 100%;">
+          <button id="receiptTrackBtn" class="btn-primary" style="flex: 1;">
+            <span>Track Order Now</span>
+          </button>
+          <button class="btn-secondary" style="flex: 1;" onclick="closeReceiptModal()">
+            <span>Keep Shopping</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- On-Site "Track My Order" Modal -->
+  <div id="trackModalOverlay" class="modal-overlay">
+    <div class="modal-box" role="dialog" aria-label="Track My Order">
+      <div class="modal-header">
+        <h3 class="modal-title">Track My Order</h3>
+        <button id="closeTrackModalBtn" class="close-btn" aria-label="Close Tracking Modal">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <form id="trackOrderForm" style="display: flex; gap: 0.5rem;">
+          <input type="text" id="trackOrderIdInput" class="form-input" placeholder="Enter Order ID (e.g. GA-8492)" required>
+          <button type="submit" class="btn-primary" style="white-space: nowrap; padding: 0.75rem 1.25rem;">
+            <span>Lookup</span>
+          </button>
+        </form>
+
+        <div id="trackNotFoundMsg" style="display: none;"></div>
+
+        <div id="trackDetailsContainer" style="display: none;">
+          <div style="background: var(--bg-primary); border-radius: 14px; padding: 1rem; border: 1px solid var(--border-subtle); margin-top: 0.5rem;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline;">
+              <div>
+                <span style="font-size: 0.75rem; color: var(--text-secondary);">Tracking for</span>
+                <h4 id="trackDisplayId" style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--accent-gold-hover);">GA-8492</h4>
+              </div>
+              <span id="trackDisplayStatus" class="status-pill status-packed">Packed with Love</span>
+            </div>
+
+            <div style="font-size: 0.82rem; color: var(--text-secondary); margin-top: 0.4rem;">
+              <div>Customer: <strong id="trackDisplayCustomer">Aditi K.</strong></div>
+              <div>Destination: <span id="trackDisplayZone">Kalyan Local</span></div>
+              <div>Doorstep Cash Payable: <strong id="trackDisplayTotal" style="color: var(--text-primary);">₹110</strong></div>
+            </div>
+          </div>
+
+          <!-- 4-Step Progress Tracker -->
+          <div class="tracker-stepper">
+            <div class="tracker-step" id="step_placed">
+              <div class="step-circle">1</div>
+              <div class="step-content">
+                <span class="step-label">Order Placed</span>
+                <span class="step-desc">Your order is confirmed &amp; logged in our Kalyan studio.</span>
+              </div>
+            </div>
+
+            <div class="tracker-step" id="step_packed">
+              <div class="step-circle">2</div>
+              <div class="step-content">
+                <span class="step-label">Packed with Love</span>
+                <span class="step-desc">Handcrafted items wrapped in satin &amp; wax-sealed note added.</span>
+              </div>
+            </div>
+
+            <div class="tracker-step" id="step_delivery">
+              <div class="step-circle">3</div>
+              <div class="step-content">
+                <span class="step-label">Out for Delivery</span>
+                <span class="step-desc">Handed to local delivery partner. Keep cash ready!</span>
+              </div>
+            </div>
+
+            <div class="tracker-step" id="step_delivered">
+              <div class="step-circle">4</div>
+              <div class="step-content">
+                <span class="step-label">Delivered &amp; Paid</span>
+                <span class="step-desc">Cash collected at doorstep. Enjoy your sparkling jewellery!</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 1rem; padding-top: 0.85rem; border-top: 1px dashed var(--border-subtle);">
+            <div style="font-size: 0.82rem; font-weight: 700; margin-bottom: 0.35rem;">Items in this Shipment:</div>
+            <div id="trackOrderItemsList" style="font-size: 0.8rem; color: var(--text-secondary);"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-header">
+            <img src="assets/images/logo.png" alt="GiftAura Official Logo" class="footer-logo-img">
+            <div>
+              <div class="footer-brand-title" style="margin-bottom: 0;">GiftAura<span style="color: var(--accent-gold);">.</span></div>
+              <div style="font-size: 0.72rem; color: var(--accent-gold); letter-spacing: 0.1em; text-transform: uppercase;">Dainty Jewellery &amp; Curated Gifting</div>
+            </div>
+          </div>
+          <p class="footer-bio">
+            A boutique jewellery &amp; curated gifting startup based out of Kalyan, Maharashtra. Handcrafted with precision, anti-tarnish golden luster, and genuine love.
+          </p>
+          <div style="display: flex; gap: 0.75rem; align-items: center;">
+            <a href="https://instagram.com/gifts.aura_" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(255, 255, 255, 0.08); padding: 0.45rem 0.9rem; border-radius: 9999px; font-size: 0.82rem; color: #FFFFFF;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              <span>Follow @gifts.aura_</span>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Collections</h4>
+          <ul class="footer-links">
+            <li><a href="#catalogSection" onclick="setFilter('Bracelets')">Aurelia Vine Bracelets</a></li>
+            <li><a href="#catalogSection" onclick="setFilter('Necklaces')">Coquette Necklaces</a></li>
+            <li><a href="#catalogSection" onclick="setFilter('Under ₹199')">Affordable Under ₹199</a></li>
+            <li><a href="#customizerSection">Gemstone Customizer</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Customer Care</h4>
+          <ul class="footer-links">
+            <li><a href="javascript:void(0)" onclick="openTrackModal()">Track My COD Order</a></li>
+            <li><a href="#catalogSection">Shipping to Kalyan &amp; Dombivli</a></li>
+            <li><a href="https://instagram.com/gifts.aura_" target="_blank">Instagram Direct Message</a></li>
+            <li><span style="color: var(--accent-gold); font-size: 0.8rem;">💵 100% Cash on Delivery</span></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Host Portal</h4>
+          <p style="font-size: 0.82rem; color: #A99B93; margin-bottom: 0.85rem;">
+            Store administrator access for managing incoming COD orders and updating catalog prices.
+          </p>
+          <a href="admin.html" class="btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.82rem; background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.15); color: #FFFFFF;">
+            <span>Host Admin Login 🔐</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 GiftAura (@gifts.aura_). Handcrafted in Kalyan, Maharashtra. All rights reserved.</div>
+        <div>Privacy Architecture: Strictly Private Cash on Delivery • No personal numbers or UPI IDs exposed</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

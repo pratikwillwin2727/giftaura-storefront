@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GiftAura Host Dashboard • COD Order & Price Manager</title>
+  
+  <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+  <link rel="apple-touch-icon" href="assets/images/logo.png">
+  <style>
+    .admin-auth-overlay {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(135deg, #2C221E 0%, #1A1412 100%);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .auth-box {
+      background: #FFFFFF;
+      width: 100%;
+      max-width: 400px;
+      border-radius: 24px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+      border: 1px solid rgba(197, 160, 89, 0.3);
+    }
+  </style>
+</head>
+<body class="admin-body">
+
+  <!-- Admin PIN Login Overlay -->
+  <div id="adminAuthOverlay" class="admin-auth-overlay">
+    <div class="auth-box">
+      <img src="assets/images/logo.png" alt="GiftAura Official Logo" class="receipt-logo-img" style="margin-bottom: 0.75rem;">
+      <h2 style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--text-primary); margin-bottom: 0.25rem;">GiftAura Host Access</h2>
+      <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.75rem;">
+        Enter your Host PIN to manage Cash-on-Delivery orders and edit product prices.
+      </p>
+
+      <form id="adminLoginForm">
+        <div class="form-group" style="margin-bottom: 1.25rem;">
+          <input 
+            type="password" 
+            id="adminPinInput" 
+            class="form-input" 
+            placeholder="Enter Host PIN (Default: 1234)" 
+            maxlength="8" 
+            style="text-align: center; font-size: 1.4rem; letter-spacing: 0.3em; font-weight: 700; padding: 0.85rem;"
+            required>
+          <div id="adminPinError" style="display: none; color: #C62828; font-size: 0.8rem; margin-top: 0.4rem; font-weight: 600;"></div>
+        </div>
+
+        <button type="submit" class="btn-primary" style="width: 100%;">
+          <span>Unlock Dashboard</span>
+        </button>
+      </form>
+
+      <div style="margin-top: 1.5rem; font-size: 0.78rem; color: var(--text-light);">
+        <span>Hint for demo: Default PIN is <code>1234</code></span><br>
+        <a href="index.html" style="color: var(--accent-gold-hover); text-decoration: underline; margin-top: 0.5rem; display: inline-block;">&larr; Return to Customer Store</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Authenticated Admin Dashboard -->
+  <div id="adminDashboardContainer" style="display: none;">
+    <!-- Admin Header -->
+    <header class="admin-header">
+      <div class="container admin-nav">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <a href="index.html" class="brand-wrapper" aria-label="GiftAura Home">
+            <img src="assets/images/logo.png" alt="GiftAura Logo" class="brand-logo-img" style="width: 40px; height: 40px;">
+            <div class="brand-text-block">
+              <span class="brand-logo" style="font-size: 1.4rem;">GiftAura<span class="brand-dot">.</span></span>
+              <span class="brand-subtitle" style="font-size: 0.65rem;">Host Center</span>
+            </div>
+          </a>
+          <span class="admin-title-badge">Host Dashboard</span>
+          <span style="font-size: 0.8rem; color: var(--text-secondary); display: none; @media(min-width: 768px){display:inline;}">📍 Kalyan Hub</span>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <a href="index.html" target="_blank" class="btn-secondary" style="padding: 0.45rem 0.95rem; font-size: 0.82rem; min-height: unset;">
+            <span>View Live Store ↗</span>
+          </a>
+          <button id="adminLogoutBtn" class="btn-secondary" style="padding: 0.45rem 0.95rem; font-size: 0.82rem; min-height: unset; color: #C62828; border-color: #FFCDD2;">
+            <span>Lock / Exit</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
+      <!-- Welcome Banner -->
+      <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;">
+        <div>
+          <h1 style="font-family: var(--font-serif); font-size: 1.85rem; font-weight: 700;">Host Management Center</h1>
+          <p style="font-size: 0.88rem; color: var(--text-secondary);">Manage incoming COD orders, dispatch packaging, and modify catalog prices in real-time.</p>
+        </div>
+        <div style="font-size: 0.82rem; background: #FFFFFF; border: 1px solid var(--border-subtle); padding: 0.45rem 0.85rem; border-radius: 9999px;">
+          <span>🔒 Privacy Mode: <strong>Active</strong> (Zero Public Phone/UPI Exposure)</span>
+        </div>
+      </div>
+
+      <!-- KPI Cards -->
+      <section class="admin-kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-label">Total COD Orders</div>
+          <div id="kpiTotalOrders" class="kpi-value">0</div>
+          <div class="kpi-hint">All-time lifetime orders</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-label">Pending Dispatch</div>
+          <div id="kpiPendingOrders" class="kpi-value" style="color: #B56576;">0</div>
+          <div class="kpi-hint">Awaiting packing or delivery</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-label">Total COD Value</div>
+          <div id="kpiTotalValue" class="kpi-value" style="color: var(--accent-gold-hover);">₹0</div>
+          <div class="kpi-hint">Gross cash receivable at door</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-label">Active Catalog Items</div>
+          <div id="kpiActiveProducts" class="kpi-value">0</div>
+          <div class="kpi-hint">Live in-stock jewellery pieces</div>
+        </div>
+      </section>
+
+      <!-- Dashboard Tabs -->
+      <div class="admin-tabs">
+        <button class="tab-btn active" data-tab="orders">📦 Live COD Orders</button>
+        <button class="tab-btn" data-tab="products">🏷️ Quick Price &amp; Inventory Editor</button>
+        <button class="tab-btn" data-tab="add_product">➕ Add New Product</button>
+        <button class="tab-btn" data-tab="settings">⚙️ Host Settings</button>
+      </div>
+
+      <!-- TAB 1: Live COD Orders -->
+      <div id="tabPane_orders" class="admin-tab-pane">
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <div>
+              <h3 style="font-family: var(--font-serif); font-size: 1.25rem;">Customer COD Orders</h3>
+              <p style="font-size: 0.78rem; color: var(--text-secondary);">Real-time orders placed via storefront. Updating status updates customer tracking instantly.</p>
+            </div>
+            
+            <div style="display: flex; gap: 0.65rem; align-items: center; flex-wrap: wrap;">
+              <input 
+                type="text" 
+                id="orderSearchInput" 
+                class="form-input" 
+                placeholder="Search by ID, name, phone..." 
+                style="width: 200px; padding: 0.45rem 0.75rem; font-size: 0.82rem;">
+
+              <select id="orderStatusFilter" class="form-select" style="width: auto; padding: 0.45rem 0.75rem; font-size: 0.82rem;">
+                <option value="all">All Statuses</option>
+                <option value="Order Placed">Order Placed</option>
+                <option value="Packed with Love">Packed with Love</option>
+                <option value="Out for Delivery">Out for Delivery</option>
+                <option value="Delivered">Delivered</option>
+                <option value="Cancelled">Cancelled</option>
+              </select>
+
+              <button class="btn-secondary" style="padding: 0.45rem 0.85rem; font-size: 0.82rem; min-height: unset;" onclick="exportOrdersCSV()">
+                📥 Export CSV
+              </button>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Order ID &amp; Date</th>
+                  <th>Customer Info</th>
+                  <th>Delivery Destination</th>
+                  <th>Items Ordered</th>
+                  <th>Gift Note</th>
+                  <th>COD Total</th>
+                  <th>Status (Live Sync)</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="adminOrdersTbody">
+                <!-- Rendered dynamically by js/admin.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2: Quick Price & Inventory Editor -->
+      <div id="tabPane_products" class="admin-tab-pane" style="display: none;">
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <div>
+              <h3 style="font-family: var(--font-serif); font-size: 1.25rem;">Instant Price &amp; Stock Editor</h3>
+              <p style="font-size: 0.78rem; color: var(--text-secondary);">Change prices (₹) or titles below and click Save. Updates immediately reflect on the live customer website without touching any code!</p>
+            </div>
+            <div>
+              <button class="btn-secondary" style="padding: 0.45rem 0.85rem; font-size: 0.82rem; min-height: unset;" onclick="resetToDefaultCatalog()">
+                🔄 Reset to Initial Catalog
+              </button>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Image</th>
+                  <th>Product Title &amp; ID</th>
+                  <th>Category</th>
+                  <th>Live Price (₹)</th>
+                  <th>Stock Status</th>
+                  <th>Save Changes</th>
+                </tr>
+              </thead>
+              <tbody id="adminProductsTbody">
+                <!-- Rendered dynamically by js/admin.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 3: Add New Product -->
+      <div id="tabPane_add_product" class="admin-tab-pane" style="display: none;">
+        <div class="admin-card" style="max-width: 650px; margin: 0 auto 2.5rem;">
+          <div class="admin-card-header">
+            <div>
+              <h3 style="font-family: var(--font-serif); font-size: 1.25rem;">Add New Jewellery Piece</h3>
+              <p style="font-size: 0.78rem; color: var(--text-secondary);">Expand your GiftAura catalog with new necklaces, bracelets, or rings.</p>
+            </div>
+          </div>
+
+          <div style="padding: 1.75rem;">
+            <form id="addNewProductForm">
+              <div class="form-group" style="margin-bottom: 1rem;">
+                <label class="form-label" for="newProductName">Product Title <span class="req">*</span></label>
+                <input type="text" id="newProductName" class="form-input" placeholder="e.g. Dainty Pearl Ribbon Choker" required>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                <div class="form-group">
+                  <label class="form-label" for="newProductCategory">Category <span class="req">*</span></label>
+                  <select id="newProductCategory" class="form-select" required>
+                    <option value="Bracelets">Bracelets</option>
+                    <option value="Necklaces">Necklaces</option>
+                    <option value="Earrings">Earrings</option>
+                    <option value="Gift Sets">Gift Sets</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="newProductBadge">Badge Label</label>
+                  <input type="text" id="newProductBadge" class="form-input" placeholder="e.g. New / Bestseller / Limited">
+                </div>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                <div class="form-group">
+                  <label class="form-label" for="newProductPrice">Selling Price (₹) <span class="req">*</span></label>
+                  <input type="number" id="newProductPrice" class="form-input" placeholder="e.g. 149" min="1" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="newProductOriginalPrice">Original Strikethrough Price (₹)</label>
+                  <input type="number" id="newProductOriginalPrice" class="form-input" placeholder="e.g. 249">
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-bottom: 1rem;">
+                <label class="form-label">Product Photo</label>
+                <input type="file" id="newProductImageFile" accept="image/*" class="form-input" style="padding: 0.5rem;">
+                <div style="text-align: center; margin: 0.5rem 0; font-size: 0.75rem; color: var(--text-light);">— OR Image URL —</div>
+                <input type="url" id="newProductImageUrl" class="form-input" placeholder="https://... image link">
+                <img id="newProductImagePreview" src="" alt="Preview" style="display: none; max-width: 120px; border-radius: 12px; margin-top: 0.5rem; border: 1px solid var(--border-subtle);">
+              </div>
+
+              <div class="form-group" style="margin-bottom: 1.5rem;">
+                <label class="form-label" for="newProductDesc">Product Description</label>
+                <textarea id="newProductDesc" class="form-textarea" rows="3" placeholder="Brief romantic description of the jewellery piece..."></textarea>
+              </div>
+
+              <button type="submit" class="btn-primary" style="width: 100%;">
+                <span>Publish to Store Catalog</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 4: Host Settings -->
+      <div id="tabPane_settings" class="admin-tab-pane" style="display: none;">
+        <div class="admin-card" style="max-width: 650px; margin: 0 auto 2.5rem;">
+          <div class="admin-card-header">
+            <div>
+              <h3 style="font-family: var(--font-serif); font-size: 1.25rem;">Host Security &amp; Integrations</h3>
+              <p style="font-size: 0.78rem; color: var(--text-secondary);">Configure security access and third-party notifications.</p>
+            </div>
+          </div>
+
+          <div style="padding: 1.75rem;">
+            <!-- Change PIN Form -->
+            <form id="changePinForm" style="margin-bottom: 2rem; padding-bottom: 1.75rem; border-bottom: 1px solid var(--border-subtle);">
+              <h4 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem;">Change Host PIN</h4>
+              <p style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 1rem;">
+                Update the PIN used to log into this host dashboard.
+              </p>
+              <div style="display: flex; gap: 0.75rem;">
+                <input type="password" id="newPinInput" class="form-input" placeholder="New PIN (min 4 digits)" maxlength="8" required style="max-width: 240px;">
+                <button type="submit" class="btn-primary" style="min-height: unset; padding: 0.65rem 1.25rem;">
+                  <span>Update PIN</span>
+                </button>
+              </div>
+            </form>
+
+            <!-- Privacy Policy Notice -->
+            <div>
+              <h4 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem;">Privacy-First Architecture</h4>
+              <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+                GiftAura is engineered specifically to protect the business owner's personal details:
+              </p>
+              <ul style="margin: 0.75rem 0 0 1.25rem; font-size: 0.82rem; color: var(--text-secondary); line-height: 1.8;">
+                <li>Personal phone number, WhatsApp number, and UPI ID are <strong>never</strong> rendered in frontend code or templates.</li>
+                <li>Customer interactions route privately through on-site COD checkout and official Instagram <code>@gifts.aura_</code>.</li>
+                <li>All data persists in safe local storage with optional zero-backend email webhook connectivity (Web3Forms).</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Admin Toast Container -->
+  <div id="adminToastContainer" class="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
